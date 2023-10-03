@@ -2,25 +2,121 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <style>
+        .blue{
+            background-color: blue;
+        }
+
+        .red{
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
-    <a href="cadastro.html">Cadastro</a>
-    <a href="login.html">Login</a>
+    <button>clique aqui</button>
+    <button>clique aqui de novo</button>
+    <button id="btgravar">Selecionar pelo id</button>
+    <button class="blue">Selecionar pela classe css</button>
 
-    <button onclick="validaLogado()">ir para consulta</button>
+    <hr>
+    <button id="setText">settext</button>
+    <p class="blue"></p>
+    <hr>
+    <input type="text" placeholder="Informe seu nome">
 
-    <script> 
-        function validaLogado(){
-          if(!localStorage.getItem('userLogado')){
-              window.location.href = './login.html'
-           }
-           else{
-              window.location.href = './consulta.html'
-           }
-        }      
-         
-      </script>
+    <p>primeiro paragrafo</p>
+    <p>segundo paragrafo</p>
+
+    <hr>
+    <div>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio iste deserunt adipisci! Odit magnam inventore repellendus praesentium, optio voluptas. Distinctio consequatur sint perferendis ipsa deleniti ut ipsam voluptatem, tempore modi.
+        </p>
+
+        <hr>
+        <button id="trocaClasse">Troca classe</button>
+
+        <button id="toogleClass">Toogle classe</button>
+
+        <button id="lerClasse">ler classe</button>
+        <button id="attrClasse">Atribuir  classe</button>
+    </div>
+
+    <script>
+        $(document).ready(()=>{
+          // let ps = $('p')
+          let ps = document.getElementsByTagName('p')
+           console.log(ps[0].innerHTML)
+          
+           /*$('button').click(()=>{
+              alert('ola')
+           })*/
+
+           $('#btgravar').click(()=>{
+              alert('Salvando dados....')
+           })
+
+           $('.blue').click(()=>{
+              alert('Classe blue')
+           })
+
+           $('p').click((item)=>{
+              alert(item.target.innerHTML)
+           })
+
+           $('#setText').click(()=>{
+             // $('p.blue').text('<b>Ola</b> mundo!') 
+             $('p.blue').html('<b>Ola</b> mundo!') 
+           })
+
+           $('input').focus(() => {
+              $('input').val('Eita lasqueira')
+              $('input').css('background-color','red')
+           })
+
+           $('input').blur(() => {
+              alert($('input').val())
+              $('input').css('background-color','silver')
+           })
+
+           $('div p').css({'color':'red','text-align':'justify', 'font-family':'fantasy'})
+          
+         /*  $('#trocaClasse').click(()=>{
+               $('#trocaClasse').addClass('blue')
+           })
+
+           $('#trocaClasse').dblclick(()=>{
+               $('#trocaClasse').addClass('red')
+           })
+*/
+           $('#trocaClasse').mousedown(()=>{
+               $('#trocaClasse').addClass('blue')
+           })
+
+           $('#trocaClasse').mouseup(()=>{
+               $('#trocaClasse').addClass('red')
+           })
+           
+           $('#toogleClass').click(()=>{
+               $('#toogleClass').toggleClass('blue')
+           })
+
+           $('#lerClasse').click(()=>{
+             // alert($('#toogleClass').attr('class'))
+            alert(document.getElementById('toogleClass').getAttribute('class'))
+           })
+
+           $('#attrClasse').click(()=>{
+              //$('#lerClasse').attr('class','red')
+           document.getElementById('lerClasse').setAttribute('class','red')
+           })
+        })
+    </script>
 </body>
 </html>

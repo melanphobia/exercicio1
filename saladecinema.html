@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sala de cinema</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+    <h1>compra de ingressos cinema</h1>
+    <label for="">numero de cadeiras</label>
+    <p>digite aqui sua cadeira desejada: <input type="text" id="comprar assento" placeholder=" "></p>
+    <button>confirmar compra</button>
+    <div></div>
+    <script>
+        $(document).ready(()=>{
+            $('[type=button]').click(()=> {
+                let quantidadede = $('#quantidadedecadeiras').val()
+                let cadeiras = ''
+                for(let i = 0; i <quantidadede; i++){
+                    cadeiras += `<button>${i}</button>`
+                }
+                $('sala').html(cadeiras)
+                $('button').addClass('livre')
+            
+                $('#tlivres').html($('button.livre').length)
+                $('#tocupados').html($('button.ocupado').length)
+            })
+                $('input').focus(() => {
+                $('input').val('')
+                $('input').css('background-color','lightblue')
+           })
+
+                $('input').blur(() => {
+                ($('input').val())
+                $('input').css('background-color','red')
+            })
+        })
+    </script>
+</body>
+</html>
