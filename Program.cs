@@ -1,29 +1,29 @@
-﻿namespace heranca
+﻿namespace agregacaodesafio
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            criaClientes();
-
-            Console.ReadKey();
+            pessoas();
         }
-
-        static void criaClientes()
+        static void pessoas()
         {
-            Cliente cliente = new Cliente() { Id = 1, Nome = "Maria", Cpf = "123" };
-            Console.WriteLine(cliente.ToString());
-        }
-        static void criarVeiculos()
-        {
-           Veiculo veiculo = new Veiculo() { Marca = "Jeep" };
-           Console.WriteLine(veiculo.Marca);
-           veiculo.ronco();
+            SortedList<string, Pessoa> nomes = new SortedList<string, Pessoa>();
+            Pessoa pessoa = new Pessoa(25, "sumeria", 1783449902);
 
-            Carro carro = new Carro() { Modelo = "Renegade" };
-            carro.Marca = "Jeep";
-            Console.WriteLine(carro.Modelo + " " + carro.Marca);
-            carro.ronco();
+            nomes.Add("enki", pessoa);
+
+            Object[] valores = nomes.Values.ToArray();
+            for (int i = 0; i < valores.Length; i++)
+            {
+                Console.WriteLine(valores[i]);
+            }
+
+            IList<string> key = nomes.Keys;
+            foreach (string k in key)
+            {
+                Console.WriteLine($"Key:{k}  {nomes[k].ToString()}");
+            }
         }
     }
 }

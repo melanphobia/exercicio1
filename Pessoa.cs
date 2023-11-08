@@ -4,23 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace heranca
+namespace agregacaodesafio
 {
     class Pessoa
     {
-        public int Id { get; set; }
-        public string Nome { get; set; }
+        public int Idade { get; set; }
+        public string Endereço { get; set; }
+        public int Cpf { get; set; }
 
-        public Pessoa() { }
-        public Pessoa(int id, string nome)
+        public Pessoa()
         {
-            Id = id;
-            Nome = nome;
         }
-
+        public Pessoa(int idade, string endereço, int cpf)
+        {
+            Idade = idade;
+            Endereço = endereço;
+            Cpf = cpf;
+        }
         public string ToString()
         {
-            return $"{Id} {Nome} ";
+            return $"{Idade} {Endereço} {Cpf}";
         }
     }
 }
