@@ -1,29 +1,32 @@
-﻿namespace agregacaodesafio
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace agregacao
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            pessoas();
+            Console.ReadKey();
         }
-        static void pessoas()
+        static void colecaolist()
         {
-            SortedList<string, Pessoa> nomes = new SortedList<string, Pessoa>();
-            Pessoa pessoa = new Pessoa(25, "sumeria", 1783449902);
+            List<Categoria> categorias = new List<Categoria>();
+            
+        }
+        static void agregar()
+        {
+            Categoria cereais = new Categoria(1, "cereais");
+            Console.WriteLine(cereais.ToString());
 
-            nomes.Add("enki", pessoa);
-
-            Object[] valores = nomes.Values.ToArray();
-            for (int i = 0; i < valores.Length; i++)
+            Produto milho = new Produto()
             {
-                Console.WriteLine(valores[i]);
-            }
+                Id = 10,
+                Descricao = "Milho",
+                Preco = 15.50,
+                categoria = cereais
+            };
 
-            IList<string> key = nomes.Keys;
-            foreach (string k in key)
-            {
-                Console.WriteLine($"Key:{k}  {nomes[k].ToString()}");
-            }
+            Console.WriteLine(milho.ToString());
         }
     }
 }
