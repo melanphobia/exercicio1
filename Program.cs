@@ -1,32 +1,51 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-namespace agregacao
+﻿namespace exericicio2
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.ReadKey();
+            produto();
         }
-        static void colecaolist()
+        static void produto()
         {
-            List<Categoria> categorias = new List<Categoria>();
-            
-        }
-        static void agregar()
-        {
-            Categoria cereais = new Categoria(1, "cereais");
-            Console.WriteLine(cereais.ToString());
-
-            Produto milho = new Produto()
-            {
-                Id = 10,
-                Descricao = "Milho",
-                Preco = 15.50,
-                categoria = cereais
-            };
-
-            Console.WriteLine(milho.ToString());
+         List<string> produtos = new List<string>();
+         bool opcao = false;
+         while (!opcao)
+         {
+                Console.WriteLine("escreva seu protudo escolhido");
+                string x = Console.ReadLine();
+                if (
+                    produtos.Contains(x))
+                {
+                    Console.WriteLine($"o produto {x} ja foi armazenado");
+                }
+                else
+                {
+                    produtos.Add(x);
+                }
+                 Console.WriteLine("adicionar outro produto?  \n\n\n (sim) (não)");
+                string confirma = Console.ReadLine().ToLower();
+                if (confirma == "sim")
+                {  
+                  Console.WriteLine("Lista:\n");
+                 for (int i = 0; i < produtos.Count; i++)
+                 {
+                  Console.WriteLine($"{produtos[i]}");
+                 }
+                  Console.Clear();
+                }
+                else
+                {
+                 Console.WriteLine("Lista:\n");
+                 for (int i = 0; i < produtos.Count; i++)
+                 {
+                  Console.WriteLine($"{produtos[i]}");
+                 }
+                 opcao = true;
+                 break;
+                }
+         }
         }
     }
 }
+
