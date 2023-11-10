@@ -4,18 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace agregacao
+namespace exercicio3
 {
     class Produto
     {
-        public int Id { get; set; }
-        public string Descricao { get; set; }
+        public string Nome { get; set; }
         public double Preco { get; set; }
-        public Categoria categoria { get; set; }
 
-        public string ToString()
+        public Produto(string nome, double preco)
         {
-            return $"{Id} {Descricao} {Preco} {categoria.ToString()}";
+            Nome = nome;
+            Preco = preco;
+        }
+
+        public override string ToString()
+        {
+            return $"{Nome} - R${Preco:F2}";
         }
     }
 }

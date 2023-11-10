@@ -1,51 +1,43 @@
-﻿namespace exericicio2
+﻿namespace exercicio3
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            produto();
+            exercicio3();
         }
-        static void produto()
+        static void exercicio3()
         {
-         List<string> produtos = new List<string>();
-         bool opcao = false;
-         while (!opcao)
-         {
-                Console.WriteLine("escreva seu protudo escolhido");
-                string x = Console.ReadLine();
-                if (
-                    produtos.Contains(x))
-                {
-                    Console.WriteLine($"o produto {x} ja foi armazenado");
-                }
-                else
-                {
-                    produtos.Add(x);
-                }
-                 Console.WriteLine("adicionar outro produto?  \n\n\n (sim) (não)");
-                string confirma = Console.ReadLine().ToLower();
-                if (confirma == "sim")
-                {  
-                  Console.WriteLine("Lista:\n");
-                 for (int i = 0; i < produtos.Count; i++)
-                 {
-                  Console.WriteLine($"{produtos[i]}");
-                 }
-                  Console.Clear();
-                }
-                else
-                {
-                 Console.WriteLine("Lista:\n");
-                 for (int i = 0; i < produtos.Count; i++)
-                 {
-                  Console.WriteLine($"{produtos[i]}");
-                 }
-                 opcao = true;
-                 break;
-                }
-         }
+                Dictionary<string, List<Produto>> categoria = new Dictionary<string, List<Produto>>();
+
+                adicionarProduto(categoria, "comidas", new Produto("macarrao", 4.99));
+                adicionarProduto(categoria, "veiculos", new Produto("chevrolet", 49.679));
+                adicionarProduto(categoria, "higiene", new Produto("detergente", 15.42));
+                Console.ReadLine();
         }
+
+            static void adicionarProduto(Dictionary<string, List<Produto>> categorias, string categoria, Produto produto)
+            {
+                if (!categorias.ContainsKey(categoria))
+                {
+                    categorias[categoria] = new List<Produto>();
+                }
+                categorias[categoria].Add(produto);
+            }
+
+            static void exibirprodutoscategoria(Dictionary<string, List<Produto>> categorias)
+            {
+                foreach (var categoria in categorias)
+                {
+                    Console.WriteLine($"Categoria: {categoria.Key}");
+
+                    foreach (var produto in categoria.Value)
+                    {
+                        Console.WriteLine($"  {produto}");
+                    }
+
+                    Console.WriteLine();
+                }
+            }
     }
 }
-

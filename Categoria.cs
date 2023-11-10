@@ -4,22 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace agregacao
+namespace exercicio3
 {
     class Categoria
     {
-        public int Id { get; set; }
-        public string Descricao { get; set; }
-
-        public Categoria() { }
-        public Categoria(int id, string descricao)
+        public string id { get; set; }
+        public string pedido { get; set; }
+        public string codigo { get; set; }
+        public Categoria(string id, string pedido, string codigo)
         {
-            Id = id;
-            Descricao = descricao;
+            id = id;
+            pedido = pedido;
+            codigo = codigo;
         }
         public string ToString()
         {
-            return $"{Id} {Descricao}";
+            return $"{id} {pedido} {codigo}";
         }
     }
 }
