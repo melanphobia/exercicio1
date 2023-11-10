@@ -4,16 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace exericicio2
+namespace exercicio3
 {
     class Produtos
     {
-        public int Id { get; set; }
-        public double Preco { get; set; }
-        public string Descricao { get; set; }
+        public string id { get; set; }
+        public string nome { get; set; } = string.Empty;
+        public string descricao { get; set; } = string.Empty;
+        public decimal? total { get; set; }
+        public string categoria { get; set; } = string.Empty;
+
+        public Produtos(string id, string nome, string descricao, decimal? total, string categoria)
+        {
+            id = id;
+            nome = nome;
+            descricao = descricao;
+            total = total;
+            categoria = categoria;
+        }
         public string ToString()
         {
-            return $"{Id} {Descricao} {Preco}";
+            return $"{id} {nome} {descricao} {total} {categoria}";
         }
     }
 }
