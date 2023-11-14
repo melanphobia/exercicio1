@@ -4,22 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace exercicio3
+namespace AULA_POO
 {
     class Produto
     {
-        public string Nome { get; set; }
-        public double Preco { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public decimal Preco { get; set; }
 
-        public Produto(string nome, double preco)
+        public Produto() { }
+
+        public Produto(int id, string name, decimal preco)
         {
-            Nome = nome;
-            Preco = preco;
+            this.Id = id;
+            this.Name = name;
+            this.Preco = preco;
         }
 
-        public override string ToString()
+        public string ToString()
         {
-            return $"{Nome} - R${Preco:F2}";
+            return $"{Id} {Name} R${Preco}";
         }
     }
 }
