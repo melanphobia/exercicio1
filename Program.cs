@@ -1,37 +1,72 @@
-﻿namespace AULA_POO_2
+﻿namespace Arquivo
 {
     internal class Program
     {
+        static string path = @"C:\Users\gabriel.leuthauser\Desktop\Nova pasta\teste1.txt";
         static void Main(string[] args)
         {
-            singleResponsability();
-            openClosed();
-            liskov();
+            bool r = false;
+            while (!r)
+            {
+                CriarArquivo();
+                Console.WriteLine("digite 1 para criar um produto ////// Digite 2 para contatar os produtos listados");
+                int opcao = Convert.ToInt32(Console.ReadLine());
+                switch (opcao)
+                {
+                    case 1: 
+                        CriarProduto();
+                        break;
+                    case 2:
+                        LerLista();
+                        break;
+                    default:
+                        Console.WriteLine("produto invalida");
+                    break;
+                }
+                Console.WriteLine("Deseja continuar o cadastro dos produtos? (Sim) (Não)");
+                string aux = Console.ReadLine().ToLower();
+                if (aux == "sim")
+                {
+                    r = false;
+                }
+                else
+                {
+                    r = true;
+                }
+            }
             Console.ReadKey();
         }
-        static void liskov()
+        static void CriarArquivo()
         {
-            GerenciaPersitenciaFatura gp1 = new GerenciaPersitenciaFatura(new PersistenciaEmArquivo());
-            gp1.executar(new Fatura());
-
-            GerenciaPersitenciaFatura gp2 = new GerenciaPersitenciaFatura(new PersistenciaEmBD());
-            gp2.executar(new Fatura());
+            if (!File.Exists(path))
+            {
+                // File.CreateText(path);
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine("produtos listados:");
+                }
+            }
         }
-        static void openClosed()
+        static void LerLista()
         {
-            new PersistenciaEmArquivo().salvar(new Fatura());
-            new PersistenciaEmBD().salvar(new Fatura());
+            using (StreamReader sr = File.OpenText(path))
+            {
+                string s;
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }
         }
-
-        static void singleResponsability()
+        static void CriarProduto()
         {
-            Produto produtoproduto = new Produto(1, "Milho", 2);
-
-            CrudProduto crudProduto = new CrudProduto();
-            crudProduto.salvar(produtoproduto);
-            crudProduto.salvar(new Produto(2, "Trigo", 50));
-
-            crudProduto.consultar();
+            Console.WriteLine("Digite o nome do produto: ");
+            string contato = Console.ReadLine();
+            using (StreamWriter sw = File.AppendText(path))
+            {
+                sw.WriteLine(contato);
+            }
+            Console.Clear();
         }
     }
 }
