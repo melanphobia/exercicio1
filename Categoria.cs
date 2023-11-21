@@ -4,22 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace exercicio3
+namespace projeto_crud
 {
     class Categoria
     {
-        public string id { get; set; }
-        public string pedido { get; set; }
-        public string codigo { get; set; }
-        public Categoria(string id, string pedido, string codigo)
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public string Preco { get; set; }
+        public string Descricao { get; set; }
+
+
+        public Categoria() { }
+        public Categoria(int id, string nome,string preco,string descricao)
         {
-            id = id;
-            pedido = pedido;
-            codigo = codigo;
+            Id = id;
+            Nome = nome;
+            Preco = preco;
+            Descricao = descricao;
         }
         public string ToString()
         {
-            return $"{id} {pedido} {codigo}";
+            return $"{Id} || {Nome} || {Preco} || {Descricao}";
         }
     }
 }

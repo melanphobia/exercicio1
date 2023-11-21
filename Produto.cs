@@ -4,26 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AULA_POO_2
+namespace projeto_crud
 {
     public class Produto
     {
         public int Id { get; set; }
         public string Descricao { get; set; }
-        public double Preco { get; set; }
+        public string Preco { get; set; }
 
         public Produto() { }
-        public Produto(int id, string descricao, double preco)
+        public Produto(int id, string descricao, string preco)
         {
-            this.Id = id;
-            this.Descricao = descricao;
-            this.Preco = preco;
+            Id = id;
+            Descricao = descricao;
+            Preco = preco;
         }
-
-        public string ToString()
-        {
-            return $"{Id} {Descricao} {Preco}";
-        }
-
     }
 }
