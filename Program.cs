@@ -9,7 +9,7 @@
             DaoProduto daoContato = new DaoProduto();
              if (daoContato.salvar(ct))
              {
-                 Console.WriteLine("Contato salvo com sucesso");
+                 Console.WriteLine("Produto salvo com sucesso");
              }
             daoContato.consultar();
 
