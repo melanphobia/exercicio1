@@ -1,14 +1,15 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using ProjetoCrud_3.NovaPasta;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace projeto_crud
+namespace ProjetoCrud_3.Entidades.Dao
 {
-    public class DaoProduto
+    internal class DaoProduto
     {
         public bool salvar(Produto produto)
         {
@@ -62,6 +63,31 @@ namespace projeto_crud
                     Console.WriteLine(ct.ToString());
                 }
             }
+        }
+
+        internal static bool Salvar(Produto produto)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static IEnumerable<object> GetProdutos()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static bool GetProdutoByID(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void Update(bool produto1, Produto produto2)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void Delete(bool produto)
+        {
+            throw new NotImplementedException();
         }
     }
 }

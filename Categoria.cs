@@ -4,27 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace projeto_crud
+namespace ProjetoCrud_3.NovaPasta
 {
     class Categoria
     {
         public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Preco { get; set; }
-        public string Descricao { get; set; }
+        public string Categorias { get; set; }
 
 
         public Categoria() { }
-        public Categoria(int id, string nome,string preco,string descricao)
+        public Categoria(string categorias)
         {
-            Id = id;
-            Nome = nome;
-            Preco = preco;
-            Descricao = descricao;
+            Categorias = categorias;
         }
         public string ToString()
         {
-            return $"{Id} || {Nome} || {Preco} || {Descricao}";
+            return $"{Id} || {Categorias}";
         }
+
+       
     }
 }
