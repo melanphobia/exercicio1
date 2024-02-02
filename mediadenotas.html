@@ -5,85 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<style>
-    h1{
-        text-align: center;
-        width: 130px;
-    }
-        input[type=text],
-        input[type=number] {
-            width: calc(100% - 20px);
-            margin: 0px 0px 10px 0px;
-        }
-        h1{
-            text-align: center;
-            width: 130px;
-            background-color: white;
-            margin: auto;
-        }
-        fieldset{
-            background-color: lightblue;
-        }
-        input{
-            background-color: whitesmoke;
-        }
-    </style>
-</style>
 <body>
-    <script src="./javascript/menu.js"></script>
-    <script src="./javascript/footer.js"></script>
-    <div class="container">
-        <form action="" method="get">
-            
-            <fieldset>
-                <h1 style="border: 2px solid purple;">Media de notas</h1>
-                <label for="nome">informe sua primeira nota</label>
-            <input type="text" id="n1" placeholder="informe primeira nota" onblur="trocaSinal(this)">
+    media de notas
+    <script src="./script/menu.js"></script>
 
-            <label for="idade">informe sua segunda nota</label>
-            <input type="text" id="n2" placeholder="informe segunda nota" onblur="trocaSinal(this)">
-
-            <label for="idade">informe sua terceira nota</label>
-            <input type="text" id="n3" placeholder="informe terceira nota" onblur="trocaSinal(this)">
-
-            <label for="idade">informe a sua frequencia</label>
-            <input type="text" id="frequencia" placeholder="informar frequencia">
-            
-            <div class="containerBotoes">
-                <input style="margin-left: 30px;margin-right: 30px;" class= "botao" type="button" onclick="validadados()" value="gravar">
-                <input style="margin-left: 30px;margin-right: 30px;" class="botao" type="reset" value="cancelar">
-            </div>
-             </fieldset>
-        </form>
-        <script> 
-            function trocaSinal(item){
-                let s= item.value
-                s = s.replace(',','.')
-                item.value = s
-            }
-            function validadados(){
-                let n1 = document.getElementById('n1')            
-                let n2 = document.getElementById('n2')
-                let n3 = document.getElementById('n3')
-                let frequencia = document.getElementById('frequencia')
-                
-
-                if (n1.value == "" || n2.value == "" || n3.value == "" || frequencia.value == "") {
-                    alert("faltou informaçao");
-                    return
-                }
-
-                let media = (parseFloat(n1.value) + parseFloat(n2.value) + parseFloat(n3.value))/3
-                console.log(media)
-
-                if (media >= 7 && frequencia.value >= 75){
-                    alert("aprovado")
-                }
-                else{
-                    alert("reprovado")
-                }
-            }
-        </script>
-</div>
+    <script src="./script/footer.js"></script>
 </body>
 </html>

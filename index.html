@@ -2,121 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>informaçoes gerais</title>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
 
-    <style>
-        .blue{
-            background-color: blue;
-        }
-
-        .red{
-            background-color: red;
-        }
-    </style>
+li a:hover {
+  background-color: #555;
+  color: white;
+}
+</style>
 </head>
 <body>
-    <button>clique aqui</button>
-    <button>clique aqui de novo</button>
-    <button id="btgravar">Selecionar pelo id</button>
-    <button class="blue">Selecionar pela classe css</button>
+    <h1 style="color:lightblue;">Bem vindo</h1>
+<ul>
+  <li><a href="./cadastro.html">cadastro</a></li>
+  <li><a href="./mediadenotas.html">media de notas</a></li>
+  <li><a href="./imc.html">IMC</a></li>
+  <li><a href="./calcaumento.html">Calc aumento</a></li>
+</ul>
+<script src="./script/menu.js"></script>
 
-    <hr>
-    <button id="setText">settext</button>
-    <p class="blue"></p>
-    <hr>
-    <input type="text" placeholder="Informe seu nome">
-
-    <p>primeiro paragrafo</p>
-    <p>segundo paragrafo</p>
-
-    <hr>
-    <div>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio iste deserunt adipisci! Odit magnam inventore repellendus praesentium, optio voluptas. Distinctio consequatur sint perferendis ipsa deleniti ut ipsam voluptatem, tempore modi.
-        </p>
-
-        <hr>
-        <button id="trocaClasse">Troca classe</button>
-
-        <button id="toogleClass">Toogle classe</button>
-
-        <button id="lerClasse">ler classe</button>
-        <button id="attrClasse">Atribuir  classe</button>
-    </div>
-
-    <script>
-        $(document).ready(()=>{
-          // let ps = $('p')
-          let ps = document.getElementsByTagName('p')
-           console.log(ps[0].innerHTML)
-          
-           /*$('button').click(()=>{
-              alert('ola')
-           })*/
-
-           $('#btgravar').click(()=>{
-              alert('Salvando dados....')
-           })
-
-           $('.blue').click(()=>{
-              alert('Classe blue')
-           })
-
-           $('p').click((item)=>{
-              alert(item.target.innerHTML)
-           })
-
-           $('#setText').click(()=>{
-             // $('p.blue').text('<b>Ola</b> mundo!') 
-             $('p.blue').html('<b>Ola</b> mundo!') 
-           })
-
-           $('input').focus(() => {
-              $('input').val('Eita lasqueira')
-              $('input').css('background-color','red')
-           })
-
-           $('input').blur(() => {
-              alert($('input').val())
-              $('input').css('background-color','silver')
-           })
-
-           $('div p').css({'color':'red','text-align':'justify', 'font-family':'fantasy'})
-          
-         /*  $('#trocaClasse').click(()=>{
-               $('#trocaClasse').addClass('blue')
-           })
-
-           $('#trocaClasse').dblclick(()=>{
-               $('#trocaClasse').addClass('red')
-           })
-*/
-           $('#trocaClasse').mousedown(()=>{
-               $('#trocaClasse').addClass('blue')
-           })
-
-           $('#trocaClasse').mouseup(()=>{
-               $('#trocaClasse').addClass('red')
-           })
-           
-           $('#toogleClass').click(()=>{
-               $('#toogleClass').toggleClass('blue')
-           })
-
-           $('#lerClasse').click(()=>{
-             // alert($('#toogleClass').attr('class'))
-            alert(document.getElementById('toogleClass').getAttribute('class'))
-           })
-
-           $('#attrClasse').click(()=>{
-              //$('#lerClasse').attr('class','red')
-           document.getElementById('lerClasse').setAttribute('class','red')
-           })
-        })
-    </script>
+<script src="./script/footer.js"></script>
 </body>
 </html>
